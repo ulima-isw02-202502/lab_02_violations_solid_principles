@@ -56,21 +56,7 @@ public class User {
         this.totalPurchases = totalPurchases;
     }
 
-    // Responsabilidad 1: Validación de usuario
-    public boolean validateUser() {
-        if (name == null || name.trim().isEmpty()) {
-            return false;
-        }
-        if (email == null || !isValidEmail(email)) {
-            return false;
-        }
-        return userType != null && (userType.equals("PREMIUM")
-                || userType.equals("REGULAR") || userType.equals("VIP"));
-    }
 
-    private boolean isValidEmail(String email) {
-        return Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$").matcher(email).matches();
-    }
 
     // Responsabilidad 2: Cálculo de descuentos
     public double calculateDiscount() {
