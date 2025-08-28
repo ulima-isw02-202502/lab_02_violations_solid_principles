@@ -64,7 +64,7 @@ classDiagram
         +getTotalPurchases() double
     }
 
-    note for User "PROBLEMA: Una clase con 4 responsabilidades diferentes
+    note for User "PROBLEMA: Una clase con 5 responsabilidades diferentes
     1. Gestión de datos de usuario
     2. Validación de datos
     3. Cálculo de descuentos
@@ -124,12 +124,6 @@ classDiagram
    - `DiscountCalculator` - responsable de calcular descuentos por tipo de usuario
    - `NotificationService` - responsable de enviar notificaciones
    - `UserReportGenerator` - responsable de generar reportes de usuario
-
-### Preguntas Guía:
-
-- ¿Cuántas razones tiene la clase `User` para cambiar?
-- ¿Qué responsabilidades no deberían estar en la clase `User`?
-- ¿Cómo mejora la separación la testabilidad del código?
 
 ---
 
@@ -228,12 +222,6 @@ classDiagram
    - Clases concretas: `CreditCardPayment`, `PayPalPayment`, `BankTransferPayment`, `BitcoinPayment`
    - Nueva clase `PaymentProcessor` que use un Map/Registry para almacenar métodos de pago
    - Clase `ApplePayPayment` para demostrar extensión **SIN modificar código existente**
-
-### Preguntas Guía:
-
-- ¿Qué código debe modificarse para agregar un nuevo método de pago en la versión original?
-- ¿Cómo permite la nueva solución agregar métodos de pago sin modificar código existente?
-- ¿Qué beneficios adicionales ofrece esta aproximación para testing?
 
 ---
 
@@ -369,12 +357,6 @@ classDiagram
    - Uso de composición en lugar de herencia forzada
    - Redefinición de la jerarquía de clases con contratos apropiados
    - Implementación del patrón Strategy para comportamientos específicos
-
-### Preguntas Guía:
-
-- ¿Qué comportamientos específicos no aplican a todos los tipos de productos?
-- ¿Cómo puede la composición resolver los problemas de herencia?
-- ¿Qué interfaces deberían definirse para diferentes capacidades de productos?
 
 ---
 
@@ -537,12 +519,6 @@ classDiagram
    - Clase `CompleteOrderProcessor` que combine múltiples interfaces usando composición
    - Demuestra cómo las clases ahora solo dependen de lo que realmente necesitan
 
-### Preguntas Guía:
-
-- ¿Cuántas responsabilidades diferentes tiene la interface original?
-- ¿Qué clases realmente necesitan cada grupo de métodos?
-- ¿Cómo mejora la segregación la flexibilidad y mantenibilidad?
-
 ---
 
 ## Ejercicio 5: Violación del Principio DIP (Dependency Inversion Principle)
@@ -696,12 +672,6 @@ classDiagram
    - Nueva clase `OrderService` que reciba dependencias por constructor
    - Factory o configurador para inyectar dependencias
    - Clase de prueba que demuestre testing con mocks
-
-### Preguntas Guía:
-
-- ¿Qué problemas causa la dependencia directa de implementaciones concretas?
-- ¿Cómo facilita la inyección de dependencias el testing?
-- ¿Qué patrones de diseño ayudan a implementar DIP correctamente?
 
 ---
 
