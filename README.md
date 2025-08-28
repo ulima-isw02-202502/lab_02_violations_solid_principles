@@ -663,7 +663,7 @@ classDiagram
 ### Indicaciones:
 
 1. **Explica** cómo la clase `OrderService` viola el principio DIP con ejemplos específicos
-2. **Identifica** los problemas de acoplamiento fuerte y dificultades de testing
+2. **Identifica** los problemas de acoplamiento fuerte
 3. **Diseña** una solución usando inyección de dependencias e inversión de control
 4. **Implementa** en el paquete `com.solid.corrected`:
    - Interfaces para las dependencias: `NotificationService`, `Logger`, `OrderRepository`
