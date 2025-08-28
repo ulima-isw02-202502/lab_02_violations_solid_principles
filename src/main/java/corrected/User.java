@@ -24,6 +24,14 @@ public class User {
         this.totalPurchases = totalPurchases;
     }
 
+    public User(String userType, double totalPurchases) {
+        this.userType = userType;
+        this.totalPurchases = totalPurchases;
+    }
+
+    public User() {
+    }
+
     public String getName() {
         return name;
     }
@@ -58,32 +66,6 @@ public class User {
 
 
 
-    // Responsabilidad 2: Cálculo de descuentos
-    public double calculateDiscount() {
-        switch (userType) {
-            case "PREMIUM":
-                return totalPurchases > 1000 ? 0.20 : 0.15;
-            case "VIP":
-                return totalPurchases > 2000 ? 0.30 : 0.25;
-            default:
-                return totalPurchases > 500 ? 0.10 : 0.05;
-        }
-    }
 
-    // Responsabilidad 3: Envío de notificaciones
-    public void sendWelcomeEmail() {
-        System.out.println("Enviando email de bienvenida a: " + email);
-        System.out.println("Asunto: ¡Bienvenido " + name + "!");
-        System.out.println("Cuerpo: Gracias por registrarte como usuario " + userType);
-    }
 
-    // Responsabilidad 4: Generación de reportes
-    public String generateUserReport() {
-        return "=== REPORTE DE USUARIO ===\n"
-                + "Nombre: " + name + "\n"
-                + "Email: " + email + "\n"
-                + "Tipo: " + userType + "\n"
-                + "Total Compras: $" + totalPurchases + "\n"
-                + "Descuento Aplicable: " + (calculateDiscount() * 100) + "%\n";
-    }
 }
