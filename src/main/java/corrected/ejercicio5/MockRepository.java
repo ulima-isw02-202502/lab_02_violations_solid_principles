@@ -1,16 +1,15 @@
 package corrected.ejercicio5;
 
-public class DatabaseOrderRepository implements OrderRepository {
+public class MockRepository implements OrderRepository{
 
-    @Override
     public void saveOrder(String orderData) {
-        System.out.println("Data saved!!");
-        System.out.println("Data: "+orderData);
+        System.out.println("Guardando en base de datos: " + orderData);
+        // Simulación de guardado en BD
     }
 
     @Override
     public String getCustomerData(int customerId) {
         return "Datos del cliente " + customerId + " desde BD";
-
     }
+
 }
