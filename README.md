@@ -352,6 +352,73 @@ classDiagram
 1. **Explica** por qué se viola el principio LSP con ejemplos específicos
 2. **Identifica** los problemas de sustituibilidad en el código de prueba
 3. **Rediseña** la jerarquía de clases para que todas las subclases sean completamente sustituibles
+
+### Diagrama de la Solución (Cumple sustituibilidad):
+
+```mermaid
+classDiagram
+    class Product {
+        <<abstract>>
+        #String name
+        #double basePrice
+        +calculatePrice()* double
+        +getName() String
+        +getBasePrice() double
+    }
+
+    class Shippable {
+        <<interface>>
+        +calculateShippingCost() double
+        +requiresPhysicalDelivery() boolean
+    }
+
+    class Downloadable {
+        <<interface>>
+        +getDownloadUrl() String
+        +getFileSize() long
+    }
+
+    class Serviceable {
+        <<interface>>
+        +scheduleService() void
+        +getServiceDuration() int
+    }
+
+    class PhysicalProduct {
+        -double weight
+        +calculatePrice() double
+        +calculateShippingCost() double
+        +requiresPhysicalDelivery() boolean
+    }
+
+    class DigitalProduct {
+        -String downloadUrl
+        -long fileSize
+        +calculatePrice() double
+        +getDownloadUrl() String
+        +getFileSize() long
+    }
+
+    class ServiceProduct {
+        -int duration
+        +calculatePrice() double
+        +scheduleService() void
+        +getServiceDuration() int
+    }
+
+    Product <|-- PhysicalProduct
+    Product <|-- DigitalProduct
+    Product <|-- ServiceProduct
+
+    Shippable <|.. PhysicalProduct
+    Downloadable <|.. DigitalProduct
+    Serviceable <|.. ServiceProduct
+
+    note for Product "Todas las subclases son sustituibles como Product ✅
+    y las capacidades especiales se modelan por interfaces opcionales"
+
+```
+
 4. **Implementa** en el paquete `com.solid.corrected` una solución que puede incluir:
    - Separación de interfaces (`Shippable`, `Downloadable`, `Serviceable`)
    - Uso de composición en lugar de herencia forzada
