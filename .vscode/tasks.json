@@ -1,0 +1,61 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Java",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "-cp",
+                "src/main/java",
+                "src/main/java/tests/*.java",
+                "src/main/java/corrected/*.java",
+                "src/main/java/violations/*.java"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$javac"]
+        },
+        {
+            "label": "Run OrderServiceTest",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "-cp",
+                "src/main/java",
+                "tests.OrderServiceTest"
+            ],
+            "group": "test",
+            "dependsOn": "Compile Java",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Run SolidViolationsDemo",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "-cp",
+                "src/main/java",
+                "tests.SolidViolationsDemo"
+            ],
+            "group": "test",
+            "dependsOn": "Compile Java",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ]
+}
