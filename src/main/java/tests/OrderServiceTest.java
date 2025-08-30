@@ -4,7 +4,8 @@
  */
 package tests;
 
-import violations.OrderService;
+import corrected.ejercicio5.DependencyInjector;
+import corrected.ejercicio5.OrderService;
 
 /**
  *
@@ -13,15 +14,20 @@ import violations.OrderService;
 public class OrderServiceTest {
 
     public static void main(String[] args) {
-        OrderService service = new OrderService();
+        DependencyInjector injector = new DependencyInjector();
+        corrected.ejercicio5.OrderService orderService = injector.createOrderService();
+        OrderService orderServiceTest = injector.createTestOrderService();
 
         // PROBLEMA: No podemos inyectar mocks para testing
         // PROBLEMA: No podemos cambiar implementaciones sin modificar OrderService
         // PROBLEMA: Testing es difícil porque hace operaciones reales (archivos, emails)
-        service.processOrder("CUSTOMER-123",
+        orderService.processOrder("CUSTOMER-123",
+                new String[]{"PRODUCT-1", "PRODUCT-2"},
+                "EMAIL");
+        orderServiceTest.processOrder("CUSTOMER-123",
                 new String[]{"PRODUCT-1", "PRODUCT-2"},
                 "EMAIL");
 
-        service.cancelOrder("ORDER-123");
+        orderService.cancelOrder("ORDER-123");
     }
 }

@@ -8,7 +8,7 @@ public class MockRepository implements OrderRepository{
     }
 
     @Override
-    public String getCustomerData(int customerId) {
+    public String getCustomerData(String customerId) {
         return "Datos del cliente " + customerId + " desde BD";
     }
 
