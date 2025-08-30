@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug OrderServiceTest",
+            "request": "launch",
+            "mainClass": "tests.OrderServiceTest",
+            "projectName": "lab_02_violations_solid_principles_grupo5",
+            "classpath": [
+                "${workspaceFolder}/src/main/java",
+                "${workspaceFolder}/target/classes"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Debug SolidViolationsDemo",
+            "request": "launch",
+            "mainClass": "tests.SolidViolationsDemo",
+            "projectName": "lab_02_violations_solid_principles_grupo5",
+            "classpath": [
+                "${workspaceFolder}/src/main/java",
+                "${workspaceFolder}/target/classes"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Debug ProductTest",
+            "request": "launch",
+            "mainClass": "tests.ProductTest",
+            "projectName": "lab_02_violations_solid_principles_grupo5",
+            "classpath": [
+                "${workspaceFolder}/src/main/java",
+                "${workspaceFolder}/target/classes"
+            ]
+        }
+    ]
+}
